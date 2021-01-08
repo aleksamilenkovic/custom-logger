@@ -20,7 +20,7 @@ public class LoggingConfig {
 	}
 	
 	public void addExecutor(LogExecutor executor) {
-		if(executors!=null)
+		if(executor!=null)
 			executors.add(executor);
 	}
 	

@@ -8,7 +8,7 @@ import logging.Message;
 
 public class FileLogExecutor extends LogExecutor{
 	private String fileName;
-    ReentrantLock lock = new ReentrantLock();
+    private ReentrantLock lock = new ReentrantLock();
 
 	public FileLogExecutor(String fileName) {
 		super(fileName +"- logging");
