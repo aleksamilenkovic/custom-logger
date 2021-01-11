@@ -7,14 +7,14 @@ public enum Level {
 			// TODO Auto-generated method stub
 			return "INFO";
 		}
-	} ,
+	},
 	WARNING {
 		@Override
 		public String getValue() {
 			// TODO Auto-generated method stub
 			return "WARNING";
 		}
-	} ,
+	},
 	ERROR {
 		@Override
 		public String getValue() {
@@ -22,6 +22,6 @@ public enum Level {
 			return "ERROR";
 		}
 	};
-	
+
 	public abstract String getValue();
 }

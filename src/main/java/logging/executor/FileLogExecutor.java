@@ -6,12 +6,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import logging.Message;
 
-public class FileLogExecutor extends LogExecutor{
+public class FileLogExecutor extends LogExecutor {
 	private String fileName;
-    private ReentrantLock lock = new ReentrantLock();
+	private ReentrantLock lock = new ReentrantLock();
 
 	public FileLogExecutor(String fileName) {
-		super(fileName +"- logging");
+		super(fileName + "- logging");
 		this.fileName = fileName;
 	}
 
@@ -19,15 +19,14 @@ public class FileLogExecutor extends LogExecutor{
 	public void doLog(Message message) {
 		FileWriter fw = null;
 		lock.lock();
-		try{	
-		    String filename= String.format("%s-%s.txt", fileName, message.getDate());
-		    fw = new FileWriter(filename, true); //the true will append the new data
-		    fw.write(message.formatMessage() + "\n"); //appends the string to the file
+		try {
+			String filename = String.format("%s-%s.txt", fileName, message.getDate());
+			fw = new FileWriter(filename, true); // the true will append the new data
+			fw.write(message.formatMessage() + "\n"); // appends the string to the file
 			fw.close();
-		}
-		catch(IOException ioe){
-		    System.err.println("IOException: " + ioe.getMessage());
-		}finally {
+		} catch (IOException ioe) {
+			System.err.println("IOException: " + ioe.getMessage());
+		} finally {
 			lock.unlock();
 		}
 	}

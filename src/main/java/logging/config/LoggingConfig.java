@@ -8,23 +8,22 @@ import logging.executor.FileLogExecutor;
 import logging.executor.LogExecutor;
 
 public class LoggingConfig {
-	private final CopyOnWriteArrayList<LogExecutor> executors =
-            new CopyOnWriteArrayList<LogExecutor>();
-	
+	private final CopyOnWriteArrayList<LogExecutor> executors = new CopyOnWriteArrayList<LogExecutor>();
+
 	public LoggingConfig() {
 		executors.add(new ConsoleLogExecutor());
 	}
-	
+
 	public LoggingConfig(String fileName) {
 		executors.add(new FileLogExecutor(fileName));
 	}
-	
+
 	public void addExecutor(LogExecutor executor) {
-		if(executor!=null)
+		if (executor != null)
 			executors.add(executor);
 	}
-	
-	public CopyOnWriteArrayList<LogExecutor> getExecutors(){
+
+	public CopyOnWriteArrayList<LogExecutor> getExecutors() {
 		return executors;
 	}
 }
